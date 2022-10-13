@@ -1,0 +1,79 @@
+main start at this time 1665614000.6006577
+ogbn-arxiv
+# Nodes: 169343
+# Edges: 2315598
+# Train: 90941
+# Val: 29799
+# Test: 48603
+# Classes: 40
+
+in feats:  128
+The real block id is  0
+get_global_graph_edges_ids_block function  spend 0.03192782402038574
+global_2_local spend time (sec) 0.04456520080566406
+
+----------------------------  graph partition start---------------------
+REG start----................................
+number of edges of full batch :  513414
+Convert a graph into a bidirected graph: 0.598 seconds, peak memory: 41.245 GB
+Construct multi-constraint weights: 0.000 seconds, peak memory: 41.245 GB
+Metis partitioning: 2.789 seconds, peak memory: 41.463 GB
+Split the graph: 2.208 seconds
+Construct subgraphs: 0.023 seconds
+46426
+44515
+REG metis partition end ----................................
+total k batches seeds list generation spend  7.267266511917114
+after graph partition
+graph partition algorithm spend time 7.451360702514648
+
+partition_len_list
+[69413, 90901]
+REG selection method  spend 7.521670818328857
+check_connections_block*********************************
+time for parepare 1: 0.014778614044189453
+local_output_nid generation: 0.0038154125213623047
+local_in_edges_tensor generation: 0.04760599136352539
+
+&&&&&&&&&&&&&&& before remove duplicate length: 257018
+remove duplicated spend time : 0.037482500076293945
+
+&&&&&&&&&&&&&&& after remove duplicate length: 63960
+
+mini_batch_src_global generation: 0.01585865020751953
+r_  generation: 0.04367375373840332
+
+local_output_nid generation: 0.006731986999511719
+local_in_edges_tensor generation: 0.04709482192993164
+
+&&&&&&&&&&&&&&& before remove duplicate length: 256396
+remove duplicated spend time : 0.03795337677001953
+
+&&&&&&&&&&&&&&& after remove duplicate length: 81811
+
+mini_batch_src_global generation: 0.017702102661132812
+r_  generation: 0.04792356491088867
+
+
+the counter of in-degree of the smallest block in current batch !!!!!!!!!!!!!!_______________!!!!!!!!!!
+Counter({10: 12814, 1: 6710, 2: 6025, 3: 4952, 4: 4010, 5: 3359, 6: 2703, 7: 2256, 8: 1956, 9: 1641})
+
+the counter of in-degree of the smallest block in current batch !!!!!!!!!!!!!!_______________!!!!!!!!!!
+Counter({10: 14813, 1: 6718, 2: 5681, 3: 4325, 4: 3310, 5: 2863, 6: 2165, 7: 1789, 8: 1516, 9: 1335})
+
+ Run 0| Epoch 0 |
+GraphSAGE(
+  (layers): ModuleList(
+    (0): SAGEConv(
+      (fc_self): Linear(in_features=128, out_features=40, bias=False)
+      (fc_neigh): Linear(in_features=128, out_features=40, bias=False)
+    )
+  )
+  (dropout): Dropout(p=0.5, inplace=False)
+)
+total model parameters size  10240
+trainable parameters
+layers.0.fc_self.weight, torch.Size([40, 128])
+layers.0.fc_neigh.weight, torch.Size([40, 128])
+----------------------------------------
+un-trainable parameters

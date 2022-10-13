@@ -12,8 +12,8 @@ from statistics import mean
 from multiprocessing import Manager, Pool
 from multiprocessing import Process, Value, Array
 
-from graph_partitioner_new import Graph_Partitioner
-from draw_graph import draw_dataloader_blocks_pyvis
+from graph_partitioner import Graph_Partitioner
+# from draw_graph import draw_dataloader_blocks_pyvis
 
 from my_utils import gen_batch_output_list
 from memory_usage import see_memory_usage
