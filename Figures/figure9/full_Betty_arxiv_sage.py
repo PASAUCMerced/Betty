@@ -2,7 +2,8 @@ import sys
 sys.path.insert(0,'..')
 sys.path.insert(0,'../utils/')
 sys.path.insert(0,'../../pytorch/micro_batch_train/')
-sys.path.insert(0,'../../pytorch/micro_batch_train/models/')
+sys.path.insert(0,'../../pytorch/models/')
+# sys.path.insert(0,'../../pytorch/micro_batch_train/models/')
 
 import dgl
 from dgl.data.utils import save_graphs
