@@ -1,9 +1,9 @@
 import sys
 sys.path.insert(0,'..')
+sys.path.insert(0,'..')
 sys.path.insert(0,'../utils/')
 sys.path.insert(0,'../../pytorch/micro_batch_train/')
 sys.path.insert(0,'../../pytorch/models/')
-
 import dgl
 from dgl.data.utils import save_graphs
 import numpy as np
@@ -25,9 +25,9 @@ import tqdm
 import random
 from graphsage_model_wo_mem import GraphSAGE
 import dgl.function as fn
-from load_graph import load_reddit, inductive_split, load_cora, load_karate, prepare_data, load_pubmed
-
-from load_graph import load_ogbn_dataset, load_ogb
+from load_graph import load_reddit, inductive_split, load_ogb, load_cora, load_karate, prepare_data, load_pubmed
+from load_graph import load_ogbn_mag    ###### TODO
+from load_graph import load_ogbn_dataset
 from memory_usage import see_memory_usage, nvidia_smi_usage
 import tracemalloc
 from cpu_mem_usage import get_memory
@@ -35,12 +35,13 @@ from statistics import mean
 # from draw_graph import gen_pyvis_graph_local,gen_pyvis_graph_global,draw_dataloader_blocks_pyvis
 # from draw_graph import draw_dataloader_blocks_pyvis_total
 from my_utils import parse_results
+# from utils import draw_graph_global
+# from draw_nx import draw_nx_graph
 
 import pickle
 from utils import Logger
 import os 
 import numpy
-from collections import Counter
 
 
 
@@ -167,8 +168,8 @@ def run(args, device, data):
 		shuffle=True,
 		drop_last=False,
 		num_workers=args.num_workers)
-	if args.GPUmem:
-		see_memory_usage("----------------------------------------before model to device ")
+	# if args.GPUmem:
+	# 	see_memory_usage("----------------------------------------before model to device ")
 
 
 	model = GraphSAGE(
@@ -182,8 +183,8 @@ def run(args, device, data):
 					
 	loss_fcn = nn.CrossEntropyLoss()
 
-	if args.GPUmem:
-				see_memory_usage("----------------------------------------after model to device")
+	# if args.GPUmem:
+	# 			see_memory_usage("----------------------------------------after model to device")
 	logger = Logger(args.num_runs, args)
 	dur = []
 	time_block_gen=[]
@@ -209,12 +210,12 @@ def run(args, device, data):
 					item=pickle.load(handle)
 					full_batch_dataloader.append(item)
 
-			if args.GPUmem:
-				see_memory_usage("----------------------------------------before generate dataloader block ")
+			# if args.GPUmem:
+			# 	see_memory_usage("----------------------------------------before generate dataloader block ")
 			
 			block_dataloader, weights_list, time_collection = generate_dataloader_block(g, full_batch_dataloader, args)
-			if args.GPUmem:
-				see_memory_usage("-----------------------------------------after block dataloader generation ")
+			# if args.GPUmem:
+			# 	see_memory_usage("-----------------------------------------after block dataloader generation ")
 			connect_check_time, block_gen_time_total, batch_blocks_gen_time =time_collection
 			print('connection checking time: ', connect_check_time)
 			print('block generation total time ', block_gen_time_total)
@@ -265,11 +266,7 @@ def run(args, device, data):
 				
 				# if args.GPUmem:
 				# 	see_memory_usage("----------------------------------------before block to device ")
-				print('the counter of in-degree of the smallest block in current batch !!!!!!!!!!!!!!_______________!!!!!!!!!!')
-				graph_in = Counter(blocks[-1].in_degrees().tolist())
-				print(graph_in)
-				print()
-    
+
 				tt51=time.time()
 				blocks = [block.int().to(device) for block in blocks]#------------*
 				tt5=time.time()
@@ -373,26 +370,26 @@ def main():
 	tt = time.time()
 	print("main start at this time " + str(tt))
 	argparser = argparse.ArgumentParser("multi-gpu training")
-	argparser.add_argument('--device', type=int, default=1,
+	argparser.add_argument('--device', type=int, default=0,
 		help="GPU device ID. Use -1 for CPU training")
 	argparser.add_argument('--seed', type=int, default=1236)
 	argparser.add_argument('--setseed', type=bool, default=True)
 	argparser.add_argument('--GPUmem', type=bool, default=True)
 	argparser.add_argument('--load-full-batch', type=bool, default=True)
 	# argparser.add_argument('--root', type=str, default='../my_full_graph/')
-	# argparser.add_argument('--dataset', type=str, default='ogbn-arxiv')
+	argparser.add_argument('--dataset', type=str, default='ogbn-arxiv')
 	# argparser.add_argument('--dataset', type=str, default='ogbn-mag')
-	argparser.add_argument('--dataset', type=str, default='ogbn-products')
+	# argparser.add_argument('--dataset', type=str, default='ogbn-products')
 	# argparser.add_argument('--dataset', type=str, default='cora')
 	# argparser.add_argument('--dataset', type=str, default='karate')
 	# argparser.add_argument('--dataset', type=str, default='reddit')
-	argparser.add_argument('--aggre', type=str, default='lstm')
-	# argparser.add_argument('--aggre', type=str, default='mean')
+	# argparser.add_argument('--aggre', type=str, default='lstm')
+	argparser.add_argument('--aggre', type=str, default='mean')
 	# argparser.add_argument('--selection-method', type=str, default='range')
 	# argparser.add_argument('--selection-method', type=str, default='random')
 	# argparser.add_argument('--selection-method', type=str, default='metis')
 	argparser.add_argument('--selection-method', type=str, default='REG')
-	argparser.add_argument('--num-batch', type=int, default=9)
+	argparser.add_argument('--num-batch', type=int, default=2)
 
 	argparser.add_argument('--re-partition-method', type=str, default='REG')
 	# argparser.add_argument('--re-partition-method', type=str, default='random')
@@ -404,9 +401,11 @@ def main():
 
 	argparser.add_argument('--num-hidden', type=int, default=256)
 
-	argparser.add_argument('--num-layers', type=int, default=2)
-	argparser.add_argument('--fan-out', type=str, default='10,25')
+	argparser.add_argument('--num-layers', type=int, default=1)
+	argparser.add_argument('--fan-out', type=str, default='10')
 	
+	
+
 	argparser.add_argument('--log-indent', type=float, default=0)
 #--------------------------------------------------------------------------------------
 	

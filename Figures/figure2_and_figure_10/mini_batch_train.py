@@ -21,7 +21,7 @@ import argparse
 import tqdm
 # import deepspeed
 import random
-from graphsage_model_products import GraphSAGE
+from graphsage_model_wo_mem import GraphSAGE
 import dgl.function as fn
 from load_graph import load_reddit, inductive_split, load_ogb, load_cora, load_karate, prepare_data, load_pubmed
 
@@ -198,7 +198,7 @@ def main():
 	tt = time.time()
 	print("main start at this time " + str(tt))
 	argparser = argparse.ArgumentParser("multi-gpu training")
-	argparser.add_argument('--device', type=int, default=2,
+	argparser.add_argument('--device', type=int, default=0,
 		help="GPU device ID. Use -1 for CPU training")
 	argparser.add_argument('--seed', type=int, default=1236)
 	argparser.add_argument('--setseed', type=bool, default=True)

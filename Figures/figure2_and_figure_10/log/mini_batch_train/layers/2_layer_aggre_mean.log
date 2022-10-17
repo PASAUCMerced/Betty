@@ -1,0 +1,49 @@
+main start at this time 1666047352.954312
+-----------------------------------------before load data 
+ Nvidia-smi: 0.30712890625 GB
+    Memory Allocated: 0.0  GigaBytes
+Max Memory Allocated: 0.0  GigaBytes
+
+#nodes: 2449029
+#edges: 123718024
+#classes: 47
+success----------------------------------------
+196571
+39255
+2164782
+# Nodes: 2400608
+# Edges: 123718024
+# Train: 196571
+# Val: 39255
+# Test: 2164782
+# Classes: 47
+
+-----------------------------------------after load data 
+ Nvidia-smi: 0.30712890625 GB
+    Memory Allocated: 0.0  GigaBytes
+Max Memory Allocated: 0.0  GigaBytes
+
+in feats:  100
+Run 00 | Epoch 00000 | Loss 6.2468 | Train 0.0456 | Val 0.0405 | Test 0.0351
+Run 00 | Epoch 00001 | Loss 5.1253 | Train 0.1075 | Val 0.0987 | Test 0.0736
+Run 00 | Epoch 00002 | Loss 4.1963 | Train 0.2126 | Val 0.1997 | Test 0.1406
+Run 00 | Epoch 00003 | Loss 3.4432 | Train 0.3144 | Val 0.2937 | Test 0.2067
+Run 00 | Epoch 00004 | Loss 2.8409 | Train 0.3979 | Val 0.3748 | Test 0.2636
+The number of model layers:  2
+Run 01:
+Highest Train: 39.79
+Highest Valid: 37.48
+  Final Train: 39.79
+   Final Test: 26.36
+The number of model layers:  2
+ 
+All runs:
+Highest Train: 39.79 ± nan
+Highest Valid: 37.48 ± nan
+  Final Train: 39.79 ± nan
+   Final Test: 26.36 ± nan
+-----------------------------------------after mini batch train 
+ Nvidia-smi: 15.47900390625 GB
+    Memory Allocated: 1.0096187591552734  GigaBytes
+Max Memory Allocated: 8.448524951934814  GigaBytes
+
