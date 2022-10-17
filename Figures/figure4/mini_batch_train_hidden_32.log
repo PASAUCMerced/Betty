@@ -367,3 +367,9 @@ Run 00 | Epoch 00344 | Loss 0.7038 | Train 0.6655 | Val 0.6526 | Test 0.5048
 Run 00 | Epoch 00345 | Loss 0.8151 | Train 0.6403 | Val 0.6243 | Test 0.4835
 Run 00 | Epoch 00346 | Loss 0.7885 | Train 0.6160 | Val 0.6077 | Test 0.4738
 Run 00 | Epoch 00347 | Loss 1.0941 | Train 0.5837 | Val 0.5826 | Test 0.4560
+Run 00 | Epoch 00348 | Loss 1.1303 | Train 0.5833 | Val 0.5752 | Test 0.4446
+Run 00 | Epoch 00349 | Loss 0.5186 | Train 0.6058 | Val 0.6020 | Test 0.4663
+Run 00 | Epoch 00350 | Loss 0.2621 | Train 0.5634 | Val 0.5550 | Test 0.4240
+Run 00 | Epoch 00351 | Loss 0.2735 | Train 0.6098 | Val 0.6002 | Test 0.4672
+Run 00 | Epoch 00352 | Loss 0.0693 | Train 0.6124 | Val 0.6050 | Test 0.4765
+Run 00 | Epoch 00353 | Loss 0.7038 | Train 0.5817 | Val 0.5720 | Test 0.4398

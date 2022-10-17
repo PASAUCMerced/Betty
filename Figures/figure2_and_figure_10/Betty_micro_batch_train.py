@@ -27,7 +27,7 @@ from graphsage_model_products import GraphSAGE
 import dgl.function as fn
 from load_graph import load_reddit, inductive_split, load_cora, load_karate, prepare_data, load_pubmed
 
-from load_graph import load_ogbn_dataset
+from load_graph import load_ogbn_dataset, load_ogb
 from memory_usage import see_memory_usage, nvidia_smi_usage
 import tracemalloc
 from cpu_mem_usage import get_memory
@@ -373,7 +373,7 @@ def main():
 	tt = time.time()
 	print("main start at this time " + str(tt))
 	argparser = argparse.ArgumentParser("multi-gpu training")
-	argparser.add_argument('--device', type=int, default=0,
+	argparser.add_argument('--device', type=int, default=1,
 		help="GPU device ID. Use -1 for CPU training")
 	argparser.add_argument('--seed', type=int, default=1236)
 	argparser.add_argument('--setseed', type=bool, default=True)
@@ -392,7 +392,7 @@ def main():
 	# argparser.add_argument('--selection-method', type=str, default='random')
 	# argparser.add_argument('--selection-method', type=str, default='metis')
 	argparser.add_argument('--selection-method', type=str, default='REG')
-	argparser.add_argument('--num-batch', type=int, default=2)
+	argparser.add_argument('--num-batch', type=int, default=9)
 
 	argparser.add_argument('--re-partition-method', type=str, default='REG')
 	# argparser.add_argument('--re-partition-method', type=str, default='random')
@@ -402,10 +402,10 @@ def main():
 	argparser.add_argument('--num-runs', type=int, default=1)
 	argparser.add_argument('--num-epochs', type=int, default=1)
 
-	argparser.add_argument('--num-hidden', type=int, default=256)
+	argparser.add_argument('--num-hidden', type=int, default=6)
 
-	argparser.add_argument('--num-layers', type=int, default=1)
-	argparser.add_argument('--fan-out', type=str, default='10')
+	argparser.add_argument('--num-layers', type=int, default=2)
+	argparser.add_argument('--fan-out', type=str, default='10,25')
 	
 	argparser.add_argument('--log-indent', type=float, default=0)
 #--------------------------------------------------------------------------------------

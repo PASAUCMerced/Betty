@@ -127,8 +127,10 @@ def run(args, device, data):
 	
 	sampler = dgl.dataloading.MultiLayerNeighborSampler(
 		[int(fanout) for fanout in args.fan_out.split(',')])
-	# if args.num_batch == 1:
-	# 	args.batch_size = len(train_nid)
+	if args.num_batch == 1:
+		args.batch_size = len(train_nid)
+	if args.batch_size == 0:
+		args.batch_size=len(train_nid)//args.num_batch + 1
 	
 	args.num_workers = 0 # when features on GPU, the number of workers should set 0 
 	batch_dataloader = dgl.dataloading.NodeDataLoader(
@@ -139,7 +141,7 @@ def run(args, device, data):
 		shuffle=True,
 		drop_last=False,
 		num_workers=args.num_workers)
-	
+	print('========    -------- the batch size current is ', args.batch_size)
 	model = GraphSAGE(
 					in_feats,
 					args.num_hidden,
@@ -161,6 +163,7 @@ def run(args, device, data):
 			model.train()
 			# with batch_dataloader.enable_cpu_affinity():
 			for step, (input_nodes, seeds, blocks) in enumerate(batch_dataloader):
+				# print('step ', step)
 				batch_inputs, batch_labels = load_block_subtensor(nfeats, labels, blocks, device)
 				blocks = [block.int().to(device) for block in blocks]
 				# Compute loss and prediction
@@ -206,14 +209,17 @@ def main():
 	argparser.add_argument('--num-runs', type=int, default=1)
 	# argparser.add_argument('--num-epochs', type=int, default=)
 	# argparser.add_argument('--num-runs', type=int, default=10)
-	argparser.add_argument('--num-epochs', type=int, default=500)
-	argparser.add_argument('--num-hidden', type=int, default=256)
-
-	argparser.add_argument('--num-layers', type=int, default=3)
-	argparser.add_argument('--fan-out', type=str, default='25,35,40')
+	argparser.add_argument('--num-epochs', type=int, default=5)
+	argparser.add_argument('--num-hidden', type=int, default=32)
+ 
+	argparser.add_argument('--num-layers', type=int, default=1)
+	argparser.add_argument('--fan-out', type=str, default='5')
+ 
+	# argparser.add_argument('--num-layers', type=int, default=3)
+	# argparser.add_argument('--fan-out', type=str, default='5,10,15')
 
 	#---------------------------------------------------------------------------------------
-	# argparser.add_argument('--num-batch', type=int, default=2)
+	argparser.add_argument('--num-batch', type=int, default=0)
 	# argparser.add_argument('--num-batch', type=int, default=2)
 	argparser.add_argument('--batch-size', type=int, default=0) 
  
@@ -226,7 +232,7 @@ def main():
 
 	#--------------------------------------------------------------------------------------
 
-	argparser.add_argument('--lr', type=float, default=0.003)
+	argparser.add_argument('--lr', type=float, default=0.0001)
 	argparser.add_argument('--dropout', type=float, default=0.5)
 	argparser.add_argument("--weight-decay", type=float, default=5e-4,
 						help="Weight for L2 loss")

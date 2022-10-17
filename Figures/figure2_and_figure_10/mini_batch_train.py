@@ -198,7 +198,7 @@ def main():
 	tt = time.time()
 	print("main start at this time " + str(tt))
 	argparser = argparse.ArgumentParser("multi-gpu training")
-	argparser.add_argument('--device', type=int, default=0,
+	argparser.add_argument('--device', type=int, default=2,
 		help="GPU device ID. Use -1 for CPU training")
 	argparser.add_argument('--seed', type=int, default=1236)
 	argparser.add_argument('--setseed', type=bool, default=True)

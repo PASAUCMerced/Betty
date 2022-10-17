@@ -1,0 +1,9 @@
+main start at this time 1665984574.2432873
+-----------------------------------------before load data 
+ Nvidia-smi: 0.30712890625 GB
+    Memory Allocated: 0.0  GigaBytes
+Max Memory Allocated: 0.0  GigaBytes
+
+#nodes: 2449029
+#edges: 123718024
+#classes: 47

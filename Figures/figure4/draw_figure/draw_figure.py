@@ -140,22 +140,23 @@ def data_formalize(full, mini):
     mini = mini[:len_cut]
     x1=range(len(full))
     x2=range(len(mini))
-    return x1, x2
+    return x1, x2, full, mini
 
 def draw(acc_full,  acc_mini, loss_full, loss_mini):
     # plt.figure(figsize=(16, 4))
     # fig,ax=plt.subplots(figsize=(24,6))
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4),)
     
-    x1, x2 = data_formalize(acc_full, acc_mini)
+    x1, x2, acc_full, acc_mini= data_formalize(acc_full, acc_mini)
     ax2.plot(x1, acc_full, label='full batch train')
-    ax2.plot(x2, acc_mini, label='small batch train (batch size = 16)')
+    ax2.plot(x2, acc_mini, label='small batch train (num batch = 16)')
     ax2.text(0.5, 0.6, str("3-layer GraphSAGE using ogbn-products"),
            fontsize=12, ha='center')
     # ax2.set_title('GraphSAGE using OGBN-products')
     # plt.ylim([0,1])
-    ax1.plot(x1, loss_full, label='full batch train')
-    ax1.plot(x2, loss_mini, label='small batch train (batch size = 16)')
+    x3, x4, loss_full, loss_mini = data_formalize(loss_full, loss_mini)
+    ax1.plot(x3, loss_full, label='full batch train')
+    ax1.plot(x4, loss_mini, label='small batch train (num batch = 16)')
     
     ax2.set(xlabel='Epoch', ylabel='Test Accuracy')
     ax1.set(xlabel='Epoch', ylabel='Loss')
@@ -184,8 +185,11 @@ def read_acc_loss(filename):
     return acc_array, loss_array
 
 if __name__=='__main__':
-    full_batch_file = "./full_batch_train_hidden_32.log"
-    mini_batch_file = "./mini_batch_train_hidden_32.log"
+    # full_batch_file = "./full_batch_train_hidden_32.log"
+    full_batch_file = "./full_batch_train_hidden_32_layer_1.log"
+    # mini_batch_file = "./mini_batch_train_hidden_32.log"
+    # mini_batch_file = "./mini_batch_train_hidden_32_lr_0.003.log"
+    mini_batch_file = "./mini_batch_train_hidden_32_lr_0.005.log"
     test_acc_full, loss_full = read_acc_loss(full_batch_file)
     test_acc_mini, loss_mini = read_acc_loss(mini_batch_file)
     draw(test_acc_full,  test_acc_mini, loss_full, loss_mini)
