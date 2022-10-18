@@ -33,6 +33,10 @@ fan_out_list=(10,25)
 hiddenList=(256 )
 AggreList=(lstm )
 
+mkdir ./log1
+mkdir ./log1/micro_batch_train
+save_path=./log1/micro_batch_train
+mkdir $save_path
 
 for Aggre in ${AggreList[@]}
 do      
@@ -72,7 +76,7 @@ do
 							--fan-out $fan_out \
 							--log-indent $logIndent \
 							--load-full-batch True \
-							> ./log/micro_batch_train/${layers}_layer_aggre_${Aggre}_batch_${nb}.log
+							> ${save_path}/${layers}_layer_aggre_${Aggre}_batch_${nb}.log
 
 							done
 						done

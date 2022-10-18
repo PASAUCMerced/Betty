@@ -31,6 +31,10 @@ fan_out_list=(10,25,30,40)
 hiddenList=(256 )
 AggreList=(mean )
 
+mkdir ./log1
+mkdir ./log1/micro_batch_train
+save_path=./log1/micro_batch_train
+mkdir $save_path
 
 for Aggre in ${AggreList[@]}
 do      

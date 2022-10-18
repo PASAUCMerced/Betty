@@ -24,7 +24,7 @@ from graphsage_model_products import GraphSAGE
 # from graphsage_model_arxiv import GraphSAGE
 import dgl.function as fn
 from load_graph import load_reddit, inductive_split, load_ogb, load_cora, load_karate, prepare_data, load_pubmed
-from load_graph import load_ogbn_mag    ###### TODO
+
 from load_graph import load_ogbn_dataset
 from memory_usage import see_memory_usage, nvidia_smi_usage
 import tracemalloc

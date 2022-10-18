@@ -1,4 +1,4 @@
-main start at this time 1666131504.8878486
+main start at this time 1666049343.5332077
 -----------------------------------------before load data 
  Nvidia-smi: 0.30712890625 GB
     Memory Allocated: 0.0  GigaBytes
@@ -24,17 +24,183 @@ success----------------------------------------
 Max Memory Allocated: 0.0  GigaBytes
 
 in feats:  100
+The real block id is  3
+get_global_graph_edges_ids_block function  spend 0.2743086814880371
+global_2_local spend time (sec) 0.41796255111694336
+
+----------------------------  graph partition start---------------------
 REG start----................................
-Convert a graph into a bidirected graph: 6.030 seconds, peak memory: 58.235 GB
-Construct multi-constraint weights: 0.000 seconds, peak memory: 58.235 GB
-Metis partitioning: 21.919 seconds, peak memory: 60.706 GB
-Split the graph: 6.870 seconds
+Convert a graph into a bidirected graph: 6.286 seconds, peak memory: 58.281 GB
+Construct multi-constraint weights: 0.000 seconds, peak memory: 58.281 GB
+Metis partitioning: 26.926 seconds, peak memory: 60.769 GB
+Split the graph: 7.085 seconds
 Construct subgraphs: 0.008 seconds
 REG metis partition end ----................................
-connection checking time:  80.59267950057983
-block generation total time  95.18113374710083
-average batch blocks generation time:  31.727044582366943
-block dataloader generation time/epoch 235.29287266731262
+total k batches seeds list generation spend  54.12906074523926
+after graph partition
+graph partition algorithm spend time 55.11399602890015
+
+partition_len_list
+[486299, 560787, 556879]
+ the number of batches:  3
+REG selection method  spend 55.69158983230591
+check_connections_block*********************************
+time for parepare 1: 0.24565982818603516
+local_output_nid generation: 0.009062051773071289
+local_in_edges_tensor generation: 0.02090620994567871
+
+&&&&&&&&&&&&&&& before remove duplicate length: 2464104
+remove duplicated spend time : 0.5327174663543701
+
+&&&&&&&&&&&&&&& after remove duplicate length: 484096
+
+mini_batch_src_global generation: 0.03809213638305664
+r_  generation: 0.26815271377563477
+
+local_output_nid generation: 0.01167440414428711
+local_in_edges_tensor generation: 0.03309226036071777
+
+&&&&&&&&&&&&&&& before remove duplicate length: 2574116
+remove duplicated spend time : 0.6002180576324463
+
+&&&&&&&&&&&&&&& after remove duplicate length: 559291
+
+mini_batch_src_global generation: 0.051366567611694336
+r_  generation: 0.33322811126708984
+
+local_output_nid generation: 0.010667562484741211
+local_in_edges_tensor generation: 0.018010377883911133
+
+&&&&&&&&&&&&&&& before remove duplicate length: 2392340
+remove duplicated spend time : 0.5574982166290283
+
+&&&&&&&&&&&&&&& after remove duplicate length: 552682
+
+mini_batch_src_global generation: 0.05776047706604004
+r_  generation: 0.3454101085662842
+
+
+The real block id is  2
+get_global_graph_edges_ids_block function  spend 1.4667353630065918
+gen group dst list time:  0.04123973846435547
+check_connections_block*********************************
+time for parepare 1: 0.3827967643737793
+local_output_nid generation: 0.08164358139038086
+local_in_edges_tensor generation: 0.18800854682922363
+
+&&&&&&&&&&&&&&& before remove duplicate length: 11694801
+remove duplicated spend time : 2.4405860900878906
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1104235
+
+mini_batch_src_global generation: 0.0957026481628418
+r_  generation: 0.838576078414917
+
+local_output_nid generation: 0.11436319351196289
+local_in_edges_tensor generation: 0.14714431762695312
+
+&&&&&&&&&&&&&&& before remove duplicate length: 14839884
+remove duplicated spend time : 3.1973705291748047
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1232994
+
+mini_batch_src_global generation: 0.1343703269958496
+r_  generation: 1.0276389122009277
+
+local_output_nid generation: 0.12442684173583984
+local_in_edges_tensor generation: 0.1249227523803711
+
+&&&&&&&&&&&&&&& before remove duplicate length: 14938759
+remove duplicated spend time : 3.3726046085357666
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1401436
+
+mini_batch_src_global generation: 0.16309523582458496
+r_  generation: 1.2855896949768066
+
+
+The real block id is  1
+get_global_graph_edges_ids_block function  spend 1.7506561279296875
+gen group dst list time:  0.12931251525878906
+check_connections_block*********************************
+time for parepare 1: 0.418745756149292
+local_output_nid generation: 0.24030065536499023
+local_in_edges_tensor generation: 0.3307943344116211
+
+&&&&&&&&&&&&&&& before remove duplicate length: 21345285
+remove duplicated spend time : 4.932053804397583
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1872089
+
+mini_batch_src_global generation: 0.1635136604309082
+r_  generation: 1.647911787033081
+
+local_output_nid generation: 0.32372617721557617
+local_in_edges_tensor generation: 0.2744145393371582
+
+&&&&&&&&&&&&&&& before remove duplicate length: 26063582
+remove duplicated spend time : 6.048330068588257
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1850015
+
+mini_batch_src_global generation: 0.22332978248596191
+r_  generation: 2.044800043106079
+
+local_output_nid generation: 0.40630459785461426
+local_in_edges_tensor generation: 0.3701026439666748
+
+&&&&&&&&&&&&&&& before remove duplicate length: 29951793
+remove duplicated spend time : 7.369797945022583
+
+&&&&&&&&&&&&&&& after remove duplicate length: 2007627
+
+mini_batch_src_global generation: 0.2449779510498047
+r_  generation: 2.1031363010406494
+
+
+The real block id is  0
+get_global_graph_edges_ids_block function  spend 0.9581773281097412
+gen group dst list time:  0.18607759475708008
+check_connections_block*********************************
+time for parepare 1: 0.4055042266845703
+local_output_nid generation: 0.47167158126831055
+local_in_edges_tensor generation: 0.3899037837982178
+
+&&&&&&&&&&&&&&& before remove duplicate length: 17169352
+remove duplicated spend time : 4.0866920948028564
+
+&&&&&&&&&&&&&&& after remove duplicate length: 2001328
+
+mini_batch_src_global generation: 0.19056248664855957
+r_  generation: 2.2232069969177246
+
+local_output_nid generation: 0.4900224208831787
+local_in_edges_tensor generation: 0.28011536598205566
+
+&&&&&&&&&&&&&&& before remove duplicate length: 17272437
+remove duplicated spend time : 4.341287612915039
+
+&&&&&&&&&&&&&&& after remove duplicate length: 1977486
+
+mini_batch_src_global generation: 0.22298836708068848
+r_  generation: 2.2865941524505615
+
+local_output_nid generation: 0.5515573024749756
+local_in_edges_tensor generation: 0.31483912467956543
+
+&&&&&&&&&&&&&&& before remove duplicate length: 18535382
+remove duplicated spend time : 4.704509973526001
+
+&&&&&&&&&&&&&&& after remove duplicate length: 2054731
+
+mini_batch_src_global generation: 0.25255608558654785
+r_  generation: 2.517099380493164
+
+
+connection checking time:  81.15134358406067
+block generation total time  94.13447308540344
+average batch blocks generation time:  31.37815769513448
+block dataloader generation time/epoch 240.1723313331604
 pseudo mini batch 0 input nodes size: 2127522
 ----------------------------------------before load block subtensor 
  Nvidia-smi: 1.44189453125 GB
@@ -199,14 +365,14 @@ Max Memory Allocated: 15.991975784301758  GigaBytes
 Max Memory Allocated: 15.991975784301758  GigaBytes
 
 times | data loading | block to device | model prediction | loss calculation | loss backward |  optimizer step |
-      |0.4289979934692383 |0.495206356048584 |0.06960034370422363 |0.00016427040100097656 |0.05216224988301595 |0.002216815948486328 |
-----------------------------------------------------------pseudo_mini_loss sum 11.014824867248535
-Total (block generation + training)time/epoch 238.8673858642578
-Training time/epoch 3.574204206466675
-Training time without block to device /epoch 2.088585138320923
-Training time without total dataloading part /epoch 0.367997407913208
-load block tensor time/epoch 1.2869939804077148
-block to device time/epoch 1.485619068145752
+      |0.447940190633138 |0.49066925048828125 |0.07094025611877441 |0.00018016497294108072 |0.05216479301452637 |0.002257823944091797 |
+----------------------------------------------------------pseudo_mini_loss sum 11.014823913574219
+Total (block generation + training)time/epoch 243.79401540756226
+Training time/epoch 3.6213772296905518
+Training time without block to device /epoch 2.149369478225708
+Training time without total dataloading part /epoch 0.3721134662628174
+load block tensor time/epoch 1.343820571899414
+block to device time/epoch 1.4720077514648438
 input features size transfer per epoch 4.023313522338867e-07
 blocks size to device per epoch 2.682209014892578e-07
  Run 0| Epoch 0 |

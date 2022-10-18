@@ -2,10 +2,9 @@
 
 
 File=Betty_micro_batch_train.py
-# File=loading_data.py
+
 Data=ogbn-products
-# Data=ogbn-arxiv
-# Data=cora
+
 model=sage
 seed=1236 
 setseed=True
@@ -23,7 +22,6 @@ num_batch=(1 2 4 8 16 32)
 pMethodList=(REG)
 
 num_re_partition=(0)
-# re_partition_method=REG
 re_partition_method=random
 
 
@@ -33,10 +31,9 @@ fan_out_list=(10)
 hiddenList=(256)
 AggreList=(lstm)
 
-# savePath=./main_result/without_re/different_aggregator/1-epoch/arxiv/1-layer-REG/
-# savePath=./main_result/without_re/different_aggregator/1-epoch/products/1-layer-REG/
+
 savePath=./log/
-# savePath=./dataloader_clean_folder/Betty-wo-duplicated/
+
 for Aggre in ${AggreList[@]}
 do      
 	

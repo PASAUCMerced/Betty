@@ -5,8 +5,8 @@ from statistics import mean
 import argparse
 import sys
 
-sys.path.insert(0,'..')
-sys.path.insert(0,'../..')
+# sys.path.insert(0,'..')
+# sys.path.insert(0,'../..')
 
 def get_fan_out(filename):
 	fan_out=filename.split('-')[3]

@@ -123,7 +123,7 @@ def log_result(src, output, eid):
 def check_connections_block(batched_nodes_list, current_layer_block):
 	str_=''
 	res=[]
-	print('check_connections_block*********************************')
+	# print('check_connections_block*********************************')
 
 	# adj_tensor = current_layer_block.adj_sparse('coo')
 	# print('adj tensor')
@@ -195,13 +195,13 @@ def check_connections_block(batched_nodes_list, current_layer_block):
 		r_=list(c.keys())
 		# 	# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   bottleneck  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 		# str_+= 'remove duplicate: '+ str(ttp1-ttp)+'\n'
-		str_+= 'r_  generation: '+ str(time.time()-ttp1)+'\n\n'
+		# str_+= 'r_  generation: '+ str(time.time()-ttp1)+'\n\n'
 	
 		src_nid = torch.tensor(output_nid + r_, dtype=torch.long)
 		output_nid = torch.tensor(output_nid, dtype=torch.long)
 
 		res.append((src_nid, output_nid, global_eid_tensor))
-	print(str_)
+	# print(str_)
 	return res
 
 
@@ -294,8 +294,8 @@ def gen_batched_output_list(dst_nids, args ):
 	if args.num_batch != 0 :
 		batch_size = ceil(len(dst_nids)/args.num_batch)
 		args.batch_size = batch_size
-	print('number of batches is ', args.num_batch)
-	print('batch size is ', batch_size)
+	# print('number of batches is ', args.num_batch)
+	# print('batch size is ', batch_size)
  
 	partition_method = args.selection_method
 	batches_nid_list=[]
@@ -349,14 +349,14 @@ def generate_dataloader_wo_Betty_block(raw_graph, full_block_dataloader, args):
 		
 		for layer_id, layer_block in enumerate(reversed(full_blocks)):
 			# print('layer id ', layer_id)
-			print('The real block id is ', l-1-layer_id)
+			# print('The real block id is ', l-1-layer_id)
 		
 			dst_nids=layer_block.dstdata['_ID']
 			
 			bb=time.time()
 			block_eidx_global, block_edges_nids_global = get_global_graph_edges_ids_block(raw_graph, layer_block)
 			get_eid_time=time.time()-bb
-			print('get_global_graph_edges_ids_block function  spend '+ str(get_eid_time))
+			# print('get_global_graph_edges_ids_block function  spend '+ str(get_eid_time))
 	
 
 			layer_block.edata['_ID'] = block_eidx_global
@@ -366,9 +366,10 @@ def generate_dataloader_wo_Betty_block(raw_graph, full_block_dataloader, args):
 				t1= time.time()
 				batched_output_nid_list, weights_list=gen_batched_output_list(dst_nids, args)
 				num_batch=len(batched_output_nid_list)
+				# print('num_batch ', num_batch)
 				
 				select_time=time.time()-t1
-				print(str(args.selection_method)+' selection method spend '+ str(select_time))
+				# print(str(args.selection_method)+' selection method spend '+ str(select_time))
 				# block 0 : (src_0, dst_0); block 1 : (src_1, dst_1);.......
 				blocks, src_list, dst_list,time_1 = generate_blocks_for_one_layer_block(raw_graph, layer_block,  batched_output_nid_list)
 				
@@ -380,7 +381,7 @@ def generate_dataloader_wo_Betty_block(raw_graph, full_block_dataloader, args):
 			else:
 				tmm=time.time()
 				grouped_output_nid_list=gen_grouped_dst_list(prev_layer_blocks)
-				print('gen group dst list time: ', time.time()-tmm)
+				# print('gen group dst list time: ', time.time()-tmm)
 				num_batch=len(grouped_output_nid_list)
 				# print('num of batch ',num_batch )
 				blocks, src_list, dst_list, time_1 = generate_blocks_for_one_layer_block(raw_graph, layer_block, grouped_output_nid_list)
@@ -459,14 +460,14 @@ def generate_dataloader_gp_block(raw_graph, full_block_dataloader, args):
 		for layer_id, layer_block in enumerate(reversed(full_blocks)):
 			# print('layer id ', layer_id)
 			
-			print('The real block id is ', l-1-layer_id)
+			# print('The real block id is ', l-1-layer_id)
 		
 			# dst_nids=layer_block.dstdata['_ID']
 			
 			bb=time.time()
 			block_eidx_global, block_edges_nids_global = get_global_graph_edges_ids_block(raw_graph, layer_block)
 			get_eid_time=time.time()-bb
-			print('get_global_graph_edges_ids_block function  spend '+ str(get_eid_time))
+			# print('get_global_graph_edges_ids_block function  spend '+ str(get_eid_time))
 			layer_block.edata['_ID'] = block_eidx_global  # this only do in the first time
 
 			# eid_nids=layer_block.edata['_ID'].tolist() # global eids in this layer block
@@ -477,16 +478,17 @@ def generate_dataloader_gp_block(raw_graph, full_block_dataloader, args):
 				my_graph_partitioner=Graph_Partitioner(layer_block, args) #init a graph partitioner object
 				batched_output_nid_list,weights_list,batch_list_generation_time, p_len_list=my_graph_partitioner.init_graph_partition()
 
-				print('partition_len_list')
-				print(p_len_list)
+				# print('partition_len_list')
+				# print(p_len_list)
 				args.batch_size = my_graph_partitioner.batch_size
 				#----------------------------------------------------------
 				# batched_output_nid_list, weights_list=gen_batched_output_list(dst_nids, args.batch_size, args.selection_method)
 				num_batch=len(batched_output_nid_list)
+				# print(' the number of batches: ', num_batch)
 				
 				#----------------------------------------------------------
 				select_time=time.time()-t1
-				print(str(args.selection_method)+' selection method  spend '+ str(select_time))
+				# print(str(args.selection_method)+' selection method  spend '+ str(select_time))
 				# block 0 : (src_0, dst_0); block 1 : (src_1, dst_1);.......
 				blocks, src_list, dst_list, time_1 = generate_blocks_for_one_layer_block(raw_graph, layer_block,  batched_output_nid_list)
 				
@@ -498,7 +500,7 @@ def generate_dataloader_gp_block(raw_graph, full_block_dataloader, args):
 			else:
 				tmm=time.time()
 				grouped_output_nid_list=gen_grouped_dst_list(prev_layer_blocks)
-				print('gen group dst list time: ', time.time()-tmm)
+				# print('gen group dst list time: ', time.time()-tmm)
 				num_batch=len(grouped_output_nid_list)
 				# print('num of batch ',num_batch )
 				blocks, src_list, dst_list, time_1 = generate_blocks_for_one_layer_block(raw_graph, layer_block, grouped_output_nid_list)

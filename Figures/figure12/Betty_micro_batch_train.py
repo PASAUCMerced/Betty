@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0,'..')
-sys.path.insert(0,'../utils/')
+sys.path.insert(0,'../../pytorch/utils/')
 sys.path.insert(0,'../../pytorch/micro_batch_train/')
 sys.path.insert(0,'../../pytorch/models/')
 

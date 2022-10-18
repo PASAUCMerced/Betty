@@ -173,7 +173,7 @@ class Graph_Partitioner:  # ----------------------*** split the output layer blo
 			res=[]
 			for pid in partition:
 				nids = partition[pid].ndata[dgl.NID].tolist()
-				# res.append(sorted(nids))
+				res.append(sorted(nids))
 				# print(len(nids))
 			print('REG metis partition end ----................................')
 			# print('the time spent: ', tp2-ts)
@@ -276,19 +276,19 @@ class Graph_Partitioner:  # ----------------------*** split the output layer blo
 		
 		# full_batch_subgraph=self.layer_block #heterogeneous graph (block)
 		
-		print('----------------------------  graph partition start---------------------')
+		# print('----------------------------  graph partition start---------------------')
 		
 		self.ideal_partition_size = (self.full_src_len/self.num_batch)
 		
 		t2 = time.time()
 		
 		self.simple_gen_K_batches_seeds_list()
-		print('total k batches seeds list generation spend ', time.time()-t2 )
+		# print('total k batches seeds list generation spend ', time.time()-t2 )
 
 		weight_list = get_weight_list(self.local_batched_seeds_list)
 		src_len_list = self.get_partition_src_len_list()
 
-		print('after graph partition')
+		# print('after graph partition')
 		
 		self.weights_list = weight_list
 		self.partition_len_list = src_len_list
@@ -335,14 +335,14 @@ class Graph_Partitioner:  # ----------------------*** split the output layer blo
 		ts = time.time()
 		
 		self.global_to_local() # global to local            self.local_batched_seeds_list
-		print('global_2_local spend time (sec)', (time.time()-ts))
-		print()
+		# print('global_2_local spend time (sec)', (time.time()-ts))
+		# print()
 		
 		t2=time.time()
 		# Then, the graph_parition is run in block to graph local nids,it has no relationship with raw graph
 		self.graph_partition()
-		print('graph partition algorithm spend time', time.time()-t2)
-		print()
+		# print('graph partition algorithm spend time', time.time()-t2)
+		# print()
 		# after that, we transfer the nids of batched output nodes from local to global.
 		self.local_to_global() # local to global         self.global_batched_seeds_list
 		t_total=time.time()-ts

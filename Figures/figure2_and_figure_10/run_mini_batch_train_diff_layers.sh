@@ -1,4 +1,9 @@
 #!/bin/bash
+
+mkdir ./log1
+mkdir ./log1/mini_batch_train
+save_path=./log1/mini_batch_train/layers
+mkdir $save_path
 echo '---start mini batch train: 1-layer. It only trains 5 epoch to save time, it will last about 1 min.'
 python mini_batch_train.py \
     --dataset ogbn-products \
@@ -10,7 +15,7 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre mean \
-    > log/mini_batch_train/layers/1_layer_aggre_mean.log
+    > ${save_path}/1_layer_aggre_mean.log
 
 echo '---start mini batch train: 2-layers. It only trains 5 epoch to save time, it will last about 1 min.'
 python mini_batch_train.py \
@@ -23,7 +28,7 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre mean \
-    > log/mini_batch_train/layers/2_layer_aggre_mean.log
+    > ${save_path}/2_layer_aggre_mean.log
 
 echo '---start mini batch train: 3-layers. It only trains 5 epoch to save time.'
 python mini_batch_train.py \
@@ -36,7 +41,7 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre mean \
-    > log/mini_batch_train/layers/3_layer_aggre_mean.log
+    > ${save_path}/3_layer_aggre_mean.log
 echo '---start mini batch train: 4-layers. It only trains 5 epoch to save time.'
 python mini_batch_train.py \
     --dataset ogbn-products \
@@ -48,4 +53,4 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre mean \
-    > log/mini_batch_train/layers/4_layer_aggre_mean.log
+    > ${save_path}/4_layer_aggre_mean.log

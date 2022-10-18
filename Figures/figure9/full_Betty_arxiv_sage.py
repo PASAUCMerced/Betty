@@ -1,9 +1,9 @@
 import sys
 sys.path.insert(0,'..')
-sys.path.insert(0,'../utils/')
+
 sys.path.insert(0,'../../pytorch/micro_batch_train/')
 sys.path.insert(0,'../../pytorch/models/')
-# sys.path.insert(0,'../../pytorch/micro_batch_train/models/')
+sys.path.insert(0,'../../pytorch/utils/')
 
 import dgl
 from dgl.data.utils import save_graphs
@@ -24,7 +24,7 @@ import argparse
 import tqdm
 
 import random
-from graphsage_model_products import GraphSAGE
+from graphsage_model_wo_mem import GraphSAGE
 import dgl.function as fn
 from load_graph import load_reddit, inductive_split, load_cora, load_karate, prepare_data, load_pubmed
 

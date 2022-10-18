@@ -1,4 +1,10 @@
 #!/bin/bash
+
+mkdir ./log1
+mkdir ./log1/mini_batch_train
+save_path=./log1/mini_batch_train/aggregators
+mkdir  $save_path
+
 echo '---start mini batch train: mean aggregator. It only trains 5 epoch to save time, it will last about 1 min.'
 python mini_batch_train.py \
     --dataset ogbn-products \
@@ -10,7 +16,7 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre mean \
-    > log/mini_batch_train/aggregators/2_layer_aggre_mean.log
+    > ${save_path}/2_layer_aggre_mean.log
 
 echo '---start mini batch train: pool aggregator. It only trains 5 epoch to save time, it will last about 1 min.'
 python mini_batch_train.py \
@@ -23,7 +29,7 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre pool \
-    > log/mini_batch_train/aggregators/2_layer_aggre_pool.log
+    > ${save_path}/2_layer_aggre_pool.log
 
 echo '---start mini batch train: lstm aggregator. It only trains 5 epoch to save time.'
 python mini_batch_train.py \
@@ -36,4 +42,4 @@ python mini_batch_train.py \
     --num-epoch 5 \
     --eval \
     --aggre lstm \
-    > log/mini_batch_train/aggregators/2_layer_aggre_lstm.log
+    > ${save_path}/2_layer_aggre_lstm.log
