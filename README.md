@@ -1,13 +1,11 @@
 ## Betty: Enabling Large-Scale GNN Training with Batch-Level Graph Partitioning  
 
-### The framework of Betty is developed upon DGL(pytorch backend)  
-#### the requirements:  pytorch >= 1.7, DGL >= 0.7
+ The framework of Betty is developed upon DGL(pytorch backend)  
+ the requirements:  pytorch >= 1.7, DGL >= 0.7
 
 
 
-##  Well-prepared node on Chameleon cloud:
-
-```ssh cc@192.5.86.155, password: test
+  Well-prepared node on Chameleon cloud: **ssh cc@192.5.86.155, password: test**
 
 
 
