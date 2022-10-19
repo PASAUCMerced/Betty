@@ -9,5 +9,5 @@ as we use fanout 10, these full batch data of arxiv are stored in folder  ~\Bett
 
 `./run_micro_batch_train.sh` (It might spends one hour. The bottleneck is REG graph partition,  we will optimize it later)
 Then you will get the training data for full batch, 2, 4 and 8 micro batch train in folder log/.  
-- *1-layer-fo-sage-mean-h-16-batch-XXX-gp-REG.log*
+- *1-layer-fo-sage-mean-h-16-batch-XXX-gp-REG.log*  
 After that, collect the test accuracy to draw the convergence curve. 
