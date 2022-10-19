@@ -12,10 +12,19 @@
 Betty introduces two novel techniques, redundancy-embedded graph (REG) partitioning and memory-aware partitioning, to effectively mitigate the redundancy and load imbalances issues across the partitions. 
 
 
-redundancy-embedded graph (REG)is implemented in 
+redundancy-embedded graph (REG)is implemented in  
 ```python
 micro_batch_train/graph_partitioner.py  
 ```
-memory-aware partitioning implementation is based on memory estimation, details are in 
-```python micro_batch_train/block_dataloader.py  
+memory-aware partitioning implementation is based on memory estimation, details are in  
+```python 
+micro_batch_train/block_dataloader.py  
 ```
+
+
+
+
+
+
+
+
