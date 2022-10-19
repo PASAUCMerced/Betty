@@ -1,12 +1,13 @@
 ## Betty: Enabling Large-Scale GNN Training with Batch-Level Graph Partitioning  
 
+#### Well-prepared node on Chameleon cloud:   
+**ssh cc@192.5.86.155, password: test**
+
+
+
+
  The framework of Betty is developed upon DGL(pytorch backend)  
  the requirements:  pytorch >= 1.7, DGL >= 0.7
-
-
-
-  Well-prepared node on Chameleon cloud: **ssh cc@192.5.86.155, password: test**
-
 
 
 Betty introduces two novel techniques, redundancy-embedded graph (REG) partitioning and memory-aware partitioning, to effectively mitigate the redundancy and load imbalances issues across the partitions. 
