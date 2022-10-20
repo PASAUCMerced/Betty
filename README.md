@@ -12,7 +12,7 @@ Email: syang127@ucmerced.edu
  We use Ubuntu 18.04, CUDA 11.2 (it's also compatible with Ubuntu16.04, CUDA 10.1).  
  The requirements:  pytorch >= 1.7, DGL >= 0.7
 
-`pip -r install requirements.txt`.  
+`pip install -r requirements.txt`.  
 
 ## Our main contributions: 
 Betty introduces two novel techniques, redundancy-embedded graph (REG) partitioning and memory-aware partitioning, to effectively mitigate the redundancy and load imbalances issues across the partitions. 
