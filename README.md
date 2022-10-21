@@ -20,11 +20,11 @@ Betty introduces two novel techniques, redundancy-embedded graph (REG) partition
 
 - redundancy-embedded graph (REG) is implemented in  
 ```python
-micro_batch_train/graph_partitioner.py  
+~/Betty/pytorch/micro_batch_train/graph_partitioner.py  
 ```
 - memory-aware partitioning implementation is based on memory estimation, details are in  
 ```python 
-micro_batch_train/block_dataloader.py  
+~/Betty/pytorch/micro_batch_train/block_dataloader.py  
 ```
 
 
