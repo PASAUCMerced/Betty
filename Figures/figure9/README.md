@@ -6,3 +6,4 @@ Then we load the full batch data and micro-batch to check the distribution of in
 
 To save time, you can draw the figure 9 directly based on the log files in draw_figure folder.  
 (We have generated the `full_batch_train.log` and `2_micro_batch_train.log`.)  
+![Figure 9](./draw_figure/Figure_9.png)
