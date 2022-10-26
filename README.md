@@ -34,7 +34,7 @@ Betty introduces two novel techniques, redundancy-embedded graph (REG) partition
 - step0:   
     `git clone https://github.com/HaibaraAiChan/Betty.git`. 
 - step1: generate some full batch data for later experiments, (the generated data will be stored in ~/Betty/dataset/).
-   `./~Betty/pytorch/micro_batch_train/gen_data.sh`.   
+   `./~/Betty/pytorch/micro_batch_train/gen_data.sh`.   
 - step2:   
     `cd Figures/figureXXX/` to test the experiments follow the instruction in `README.md` in corresponding figure folder.  
     And the expected results are in bak folder in each figure folder.  
