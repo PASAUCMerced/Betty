@@ -53,7 +53,7 @@ def draw(acc_list):
 	
 	ax.set(xlabel='Epoch', ylabel='Test Accuracy')
 	plt.legend()
-	plt.savefig('full_v.s._mico convergence curve .png')
+	plt.savefig('Figure13.png')
 	
 
 				
