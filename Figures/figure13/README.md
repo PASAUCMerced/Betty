@@ -1,4 +1,4 @@
-##
+## Figure 13 convergence curves
 ###
 We would like to show the convergence curves for full-batch training and micro-batch training with three different numbers of batches.
 In this way, it can prove the micro batch training won't change the convergence of training.
@@ -12,4 +12,5 @@ Then you will get the training data for full batch, 2, 4 and 8 micro batch train
 - *1-layer-fo-sage-mean-h-16-batch-XXX-gp-REG.log*  
 After that, collect the test accuracy to draw the convergence curve.  
   
-![Figure 13](./full_v.s._mico convergence curve .png)
+![Figure 13](./Figure13.png)  
+
