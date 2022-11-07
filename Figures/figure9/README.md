@@ -4,6 +4,8 @@ Then we load the full batch data and micro-batch to check the distribution of in
 `python full_Betty_arxiv_sage.py --num-batch 1 > log/full_batch_train.log`  
 `python full_Betty_arxiv_sage.py --num-batch 2 > log/2_micro_batch_train.log`  
 
-To save time, you can draw the figure 9 directly based on the log files in draw_figure folder.  
+To save time, you can draw the figure 9 directly based on the log files in draw_figure folder.   
+`cd draw_figure`  
+`python draw_figure.py`  
 (We have generated the `full_batch_train.log` and `2_micro_batch_train.log`.)  
 ![Figure 9](./draw_figure/Figure_9.png)
