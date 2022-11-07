@@ -27,7 +27,7 @@ You can find the cuda memory consumption of different model layers (Graph SAGE m
 2 layer: 8.45GB  
 3 layer: 13.25GB  Nvidia-smi: 19.01GB  
 4 layer: 22.11GB  Nvidia-smi: 30.53GB when the GPU memory equals 24 GB, it will OOM.  
-As the GPU memory capacity of current node is 32 GB, it can run 4-layer model successfully.  
+When the GPU memory capacity of the node is 32 GB, it can run 4-layer model successfully.  
 
 - figure 10 (b)  
 When GPU meomry constraint is 24 GB.  
