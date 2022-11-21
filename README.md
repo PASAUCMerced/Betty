@@ -12,9 +12,12 @@ Email: syang127@ucmerced.edu
 
 ## install requirements:
  The framework of Betty is developed upon DGL(pytorch backend)  
- We use Ubuntu 18.04, CUDA 11.2, python 3.6    
+ We use Ubuntu 18.04, CUDA 11.2,   
+   
  (it's also compatible with Ubuntu16.04, CUDA 10.1, the package version you need to install are denoted in install_requirements.sh).  
- The requirements:  pytorch >= 1.7, DGL >= 0.7
+ The requirements:  pytorch >= 1.7, DGL >= 0.7  
+ 
+ (python 3.6 is the basic configuration in requirements here, you can use other python version, e.g. python3.8, you need configure the corresponding pytorch and dgl version.)  
 
 `bash install_requirements.sh`.  
 
