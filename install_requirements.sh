@@ -13,6 +13,8 @@ pip install torch-scatter
 pip install torch-sparse
 pip install torch-geometric
 pip install https://data.dgl.ai/wheels/dgl_cu111-0.9.1-cp36-cp36m-manylinux1_x86_64.whl
+# if you use python 3.8, you can use 'dgl_cu111-0.9.1-cp38-cp38m-manylinux1_x86_64.whl'. 
+# more dgl version, you can find https://data.dgl.ai/wheels/repo.html. 
 pip install tqdm
 pip install ogb
 pip install pynvml
