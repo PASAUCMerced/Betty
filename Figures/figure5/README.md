@@ -34,7 +34,7 @@ Each item of **CUDA max memory consumption** equals $L_i$ x $B_i$ x 128 x 18 x 4
 | CUDA max memory consumption (GB)| 0.11525 |0.20094| 0.23887 | 0.25131|0.26701|0.25069| 0.24302|0.23840  |  0.22988  |   2.3712  |
 
 sum of estimated memory consumption equals 4.40GB  
-the real memory consumption collected from mini batch training is 4.32208-0.074145 = 4.25GB  
+the real memory consumption collected from mini batch training (log file in folder **/log**) is 4.32208-0.074145 = 4.25GB  
 The estimate error is  
 (4.40-4.25)/4.25 = 0.15/4.25 = 3.53%  
 
