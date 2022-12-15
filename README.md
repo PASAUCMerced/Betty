@@ -10,7 +10,7 @@ If you have any questions, you can email me directly.
 Email: syang127@ucmerced.edu
 
 
-## install requirements:
+## Install requirements:
  The framework of Betty is developed upon DGL(pytorch backend)  
  We use Ubuntu 18.04, CUDA 11.2,   
    
@@ -19,22 +19,14 @@ Email: syang127@ucmerced.edu
  
  (python 3.6 is the basic configuration in requirements here, you can use other python version, e.g. python3.8, you need configure the corresponding pytorch and dgl version.)  
 
-`bash install_requirements.sh`.  
-
-## Our main contributions: 
-Betty introduces two novel techniques, redundancy-embedded graph (REG) partitioning and memory-aware partitioning, to effectively mitigate the redundancy and load imbalances issues across the partitions. 
+`bash install_requirements.sh`. 
 
 
-- redundancy-embedded graph (REG) is implemented in  
-```python
-~/Betty/pytorch/micro_batch_train/graph_partitioner.py  
-```
-- memory-aware partitioning implementation is based on memory estimation, details are in  
-```python 
-~/Betty/pytorch/micro_batch_train/block_dataloader.py  
-```
-
-
+## Structure of dirctlory  
+The directory **/pytorch** contains all necessary files for the micro-batch training and mini-batch training.   
+In folder micro_batch_train, `graph_partitioner.py` contains our implementation of redundancy embedded graph partitioning.
+`block_dataloader.py` is implemented to construct the micro-batch based on the partitioning results of REG. 
+The folder **/Figures** contains these important figures for analysis and performance evaluation.
 
 
 ### The main steps for code reproduction on your own device:  
