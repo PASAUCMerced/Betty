@@ -26,6 +26,7 @@ Email: syang127@ucmerced.edu
 The directory **/pytorch** contains all necessary files for the micro-batch training and mini-batch training.   
 In folder micro_batch_train, `graph_partitioner.py` contains our implementation of redundancy embedded graph partitioning.
 `block_dataloader.py` is implemented to construct the micro-batch based on the partitioning results of REG. 
+You can download the benchmarks and generate full batch data into folder **/dataset**.  
 The folder **/Figures** contains these important figures for analysis and performance evaluation.
 
 
