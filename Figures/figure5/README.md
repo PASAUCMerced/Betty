@@ -1,4 +1,4 @@
-We can execute 'memory_estimation.py' to collect inforamtion to estimate the memory consumption in advance.  
+We can execute `memory_estimation.py` to collect inforamtion to estimate the memory consumption in advance.  
 For example, we use 1-layer GraphSage model + LSTM aggregator using dataset OGBN-arxiv
 
 
@@ -35,3 +35,6 @@ sum of estimated memory consumption equals 4.40GB
 the real memory consumption collected from mini batch training is 4.32208-0.074145 = 4.25GB  
 The estimate error is  
 (4.40-4.25)/4.25 = 0.15/4.25 = 3.53%  
+
+
+Here is an example of full batch train estimation, if you want to test the estimation error of different number of batches, just get the in-degree distribution of each batch to estimate the memory usage based on above Mem_estimate_formula. After that, sum the estiamte memory usage of all batches, then compare with the pratical runtime memory consumption. 
