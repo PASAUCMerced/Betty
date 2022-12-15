@@ -1,0 +1,4 @@
+- We implement figure 2 to denote the OOM situation of current advanced GNN training, and applied figure 10 to illustrate Betty break the memory wall.   
+- We implement memory consumption estimation during the workflow of Betty, shown in figure 5.  
+- We use figure 12 to denote the tendency of peak memory consumption and training time per epoch as the number of micro batches increases.  
+- And the model convergence is not impacted by Betty and micro-batch training can be proved by the figure 13.
