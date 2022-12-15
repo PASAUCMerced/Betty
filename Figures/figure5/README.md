@@ -1,4 +1,6 @@
-We can execute `memory_estimation.py` to collect inforamtion to estimate the memory consumption in advance.  
+For the workflow of Betty, as the redundancy reduction performance can be found in figure 12, hence, this part we only provide the calculation of memory consumption estimation.  
+We introduce the memory consumption estimation of **lstm aggreagtor**.   
+We can execute `memory_estimation.py` to collect inforamtion to estimate the memory consumption before pratical execution.  
 For example, we use 1-layer GraphSage model + LSTM aggregator using dataset OGBN-arxiv
 
 
@@ -36,5 +38,6 @@ the real memory consumption collected from mini batch training is 4.32208-0.0741
 The estimate error is  
 (4.40-4.25)/4.25 = 0.15/4.25 = 3.53%  
 
+If the estimated memory consumption is larger than the given memory constraint, we can split the full batch into 2 batches or 4 batches, even more catches, until GNN traininng can be fit into memory limitation.  
 
 Here is an example of full batch train estimation, if you want to test the estimation error of different number of batches, just get the in-degree distribution of each batch to estimate the memory usage based on above Mem_estimate_formula. After that, sum the estiamte memory usage of all batches, then compare with the pratical runtime memory consumption. 
