@@ -1,12 +1,7 @@
 # Betty: Enabling Large-Scale GNN Training with Batch-Level Graph Partitioning  
 
-#### Well-prepared nodes on Chameleon cloud for artifact evaluation:   
-**ssh cc@192.5.87.23, password: test**   
-  
  
-As the cloud node might be reserved by others, the IP address might be different later, please check this file when you ssh access the cloud node.
-If you have any questions, you can email me directly.  
-Email: syang127@ucmerced.edu
+
 
 
 ## Install requirements:
