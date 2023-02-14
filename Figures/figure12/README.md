@@ -7,7 +7,7 @@ After `./run_1-layer.sh` you can get the result of full batch, 2, 4, 8, 16, 32 m
 in folder `log/`  
   
 then run `data_collection.py` to collect the max memory consumption and average training time for different number of batches.  
-you might get the table below.
+you might get a table like below.
 ogbn-products GraphSAGE fan-out 10 hidden 256
 
 |    |   full batch  |      2 Micro batches |     4 Micro batches |     8 Micro batches |     16 Micro batches |    32   Micro batches |
