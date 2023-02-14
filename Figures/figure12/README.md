@@ -12,8 +12,8 @@ ogbn-products GraphSAGE fan-out 10 hidden 256
 
 |    |   full batch  |      2 Micro batches |     4 Micro batches |     8 Micro batches |     16 Micro batches |    32   Micro batches |
 |-------------------------------------------------|:--------------:|------------:|-------------:|------------:|-------------:|-------------:|
-| average train time per epoch                    |     0.0344584 |   0.0541086 |    0.110197 |     0.18126 |     0.285715 |     0.572999 |
-| CUDA max memory consumption                     |    13.0332    |   6.64646   |    3.3753   |     1.70534 |     0.87931  |     0.441572 |
+| average train time per epoch  (sec)                  |     0.0344584 |   0.0541086 |    0.110197 |     0.18126 |     0.285715 |     0.572999 |
+| CUDA max memory consumption   (GB)                  |    13.0332    |   6.64646   |    3.3753   |     1.70534 |     0.87931  |     0.441572 |
 | redundancy rate I (First Layer Input)           |     1         |   1.04004   |    1.12165  |     1.2015  |     1.27704  |     1.35091  |
 
 
