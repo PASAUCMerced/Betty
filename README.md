@@ -1,6 +1,5 @@
-# Betty: Enabling Large-Scale GNN Training with Batch-Level Graph Partitioning  
-
- 
+# Betty: Enabling Large-Scale GNN Training with Batch-Level Graph Partitioning 
+#### [paper link [pdf]](https://dl.acm.org/doi/pdf/10.1145/3575693.3575725)
 
 
 
